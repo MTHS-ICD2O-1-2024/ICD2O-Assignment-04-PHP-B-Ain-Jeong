@@ -45,42 +45,45 @@
           src="./images/dinosaurs.png"
           alt="Dinosaurs image" />
       </div>
-      <form action="./answer.php" method="GET">
-        <br />
-        <div class="page-content-guide">Enter in your age:</div>
-        <form>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input
-              class="mdl-textfield__input"
-              type="text"
-              pattern="-?[0-9]*(\.[0-9]+)?"
-              id="customer-age" />
-            <label class="mdl-textfield__label" for="customer-age">Your age here...</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <br />
-          <div class="page-content-guide">
-            Tour Options
-          </div>
-          <div class="mdl-textfield mdl-js-textfield">
-            <select class="mdl-textfield__input" id="tour-option">
-              <option value="self-tour">Self-Guided Audio Tour</option>
-              <option value="private-tour">Private Guided Tour (less than 5)</option>
-              <option value="group-tour">Large Group Guided Tour (more than 6)</option>
-            </select>
-          </div>
-          <br />
-          <button
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            onclick="checkPrice ()"
-            type="button">
-            Check The Price
-          </button>
-        </form>
-        <br />
-        <div class="page-content-answer">
-          <div id="answer"></div>
+      <div class="page-content-answer">
+        <div id="answer">
+          <?php
+          $TAX = 0.13;
+          $subTotal = 0;
+
+          // input
+          $customerAge = $_GET["customer-age"];
+          $tourOption = $_GET["tour-option"];
+
+          // process (customerAge)
+          if ($customerAge <= 3 || $customerAge >= 65) {
+            $subTotal = $subTotal + 15;
+          } else {
+            $subTotal = $subTotal + 20;
+          }
+
+          // process (tourOption)
+          if ($tourOption == "self-tour") {
+            $subTotal = $subTotal + 5;
+          } else if ($tourOption == "private-tour") {
+            $subTotal = $subTotal + 45;
+          } else {
+            $subTotal = $subTotal + 12;
+          }
+
+          // tax calculation
+          $totalPrice = $subTotal * (1 + $TAX);
+
+          // output
+          echo "Sub Total: $" . number_format($subTotal, 2) . "<br>" .
+            "Tax Rate: 13%<br>" .
+            "Total Price: $" . number_format($totalPrice, 2);
+          ?>
         </div>
+      </div>
+      <div class="page-content-return">
+        <a href="./index.php">Return ...</a>
+      </div>
     </main>
   </div>
 </body>
