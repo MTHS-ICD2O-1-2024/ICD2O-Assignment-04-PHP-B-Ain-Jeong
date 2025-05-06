@@ -54,7 +54,7 @@
               class="mdl-textfield__input"
               type="text"
               pattern="-?[0-9]*(\.[0-9]+)?"
-              id="customer-age" />
+              name="customer-age" />
             <label class="mdl-textfield__label" for="customer-age">Your age here...</label>
             <span class="mdl-textfield__error">Input is not a number!</span>
           </div>
@@ -63,7 +63,7 @@
             Tour Options
           </div>
           <div class="mdl-textfield mdl-js-textfield">
-            <select class="mdl-textfield__input" id="tour-option">
+            <select class="mdl-textfield__input" name="tour-option">
               <option value="self-tour">Self-Guided Audio Tour</option>
               <option value="private-tour">Private Guided Tour (less than 5)</option>
               <option value="group-tour">Large Group Guided Tour (more than 6)</option>
@@ -72,8 +72,7 @@
           <br />
           <button
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            onclick="checkPrice ()"
-            type="button">
+            type="submit">
             Check The Price
           </button>
         </form>

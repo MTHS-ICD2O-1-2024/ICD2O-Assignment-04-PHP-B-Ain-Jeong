@@ -32,9 +32,8 @@
 .page-content-answer {
   color: rgb(25 50 18);
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.7rem;
-  padding-top: 20pt;
-  padding-bottom: 20pt;
+  font-size: 1.5rem;
+  line-height: 20pt;
 }
 
 .page-content-return {
