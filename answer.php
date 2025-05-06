@@ -78,7 +78,7 @@
           // output (https://www.php.net/manual/en/function.number-format.php)
           echo $customerAge . " year-old with " . $tourOption . " option:<br>" .
             "Sub Total: $" . number_format($subTotal, 2) . "<br>" .
-            "Tax Rate: $" . number_format($tax, 2) . "<br>" .
+            "Tax: $" . number_format($tax, 2) . "<br>" .
             "Total Price: $" . number_format($totalPrice, 2);
           ?>
         </div>
