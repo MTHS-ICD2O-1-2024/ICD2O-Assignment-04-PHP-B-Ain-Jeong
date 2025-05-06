@@ -48,7 +48,7 @@
       <div class="page-content-answer">
         <div id="answer">
           <?php
-          $TAX = 0.13;
+          $TAX_RATE = 0.13;
           $subTotal = 0;
 
           // input
@@ -72,11 +72,13 @@
           }
 
           // tax calculation
-          $totalPrice = $subTotal * (1 + $TAX);
+          $tax = $subTotal * $TAX_RATE;
+          $totalPrice = $subTotal + $tax;
 
-          // output
-          echo "Sub Total: $" . number_format($subTotal, 2) . "<br>" .
-            "Tax Rate: 13%<br>" .
+          // output (https://www.php.net/manual/en/function.number-format.php)
+          echo $customerAge . " year-old with " . $tourOption . " option:<br>" .
+            "Sub Total: $" . number_format($subTotal, 2) . "<br>" .
+            "Tax Rate: $" . number_format($tax, 2) . "<br>" .
             "Total Price: $" . number_format($totalPrice, 2);
           ?>
         </div>
